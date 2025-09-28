@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل مكافحة العدوى - أسئلة وإجابات</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --success-color: #27ae60;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --light-bg: #ecf0f1;
+            --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .section-nav {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .section-btn {
+            background: white;
+            border: 2px solid #e0e0e0;
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            margin: 0.25rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .section-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .section-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 1rem 3rem 1rem 1.5rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .question-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .question-number {
+            background: var(--secondary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .option-item {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            margin-bottom: 0.75rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .option-item:hover {
+            background: #e9ecef;
+            transform: translateX(-5px);
+        }
+
+        .option-letter {
+            background: white;
+            color: var(--primary-color);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 1rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .answer-section {
+            background: var(--light-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            display: none;
+            animation: slideDown 0.3s ease;
+        }
+
+        .answer-section.show {
+            display: block;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .answer-label {
+            color: var(--success-color);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .answer-label i {
+            margin-left: 0.5rem;
+        }
+
+        .show-answer-btn {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .show-answer-btn:hover {
+            background: #229954;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
+        }
+
+        .stats-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .stats-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        .stats-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .progress-container {
+            background: #e9ecef;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            background: linear-gradient(90deg, var(--secondary-color), var(--success-color));
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #666;
+        }
+
+        .no-results i {
+            font-size: 4rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .question-card {
+                padding: 1.5rem;
+            }
+            
+            .section-btn {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1><i class="fas fa-shield-virus ms-2"></i>دليل مكافحة العدوى</h1>
+            <p>أسئلة وإجابات للممارسة المهنية في المستشفى</p>
+        </div>
+    </div>
+
+    <div class="section-nav">
+        <div class="container">
+            <div class="d-flex flex-wrap justify-content-center">
+                <button class="section-btn active" data-section="1">القسم ١: السلوك المهني</button>
+                <button class="section-btn" data-section="2">القسم ٢: نظافة اليدين</button>
+                <button class="section-btn" data-section="3">القسم ٣: المطهرات وPPE</button>
+                <button class="section-btn" data-section="4">القسم ٤: الممارسات الآمنة</button>
+                <button class="section-btn" data-section="5">القسم ٥: السيناريوهات</button>
+                <button class="section-btn" data-section="6">القسم ٦: النفايات والتعقيم</button>
+                <button class="section-btn" data-section="7">القسم ٧: بروتوكولات محددة</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 mb-4">
+                <div class="stats-card">
+                    <div class="stats-number" id="totalQuestions">200</div>
+                    <div class="stats-label">إجمالي الأسئلة</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number" id="currentSection">1</div>
+                    <div class="stats-label">القسم الحالي</div>
+                </div>
+                <div class="stats-card">
+                    <div class="stats-number" id="viewedAnswers">0</div>
+                    <div class="stats-label">الإجابات المشاهدة</div>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </div>
+            
+            <div class="col-lg-9 col-md-8">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="ابحث عن سؤال...">
+                </div>
+                
+                <div id="questionsContainer">
+                    <!-- Questions will be dynamically loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Data structure for questions
+        const questionsData = {
+            1: [
+                {
+                    number: 1,
+                    question: "أثناء المرور في المشفى، ماذا يجب أن تفعل إذا تم سؤالك عن شيء لا تعرف الإجابة عليه؟",
+                    options: [
+                        "تخمين الإجابة لإظهار المبادرة.",
+                        "سؤال زميلك بسرعة عن الإجابة.",
+                        "إخبارهم بأنك دائمًا ترجع إلى مشرفك/رئيس القسم.",
+                        "تغيير الموضوع إلى شيء آخر تعرفه."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 2,
+                    question: "من المسئول عن تطبيق إجراءات مكافحة العدوى في المستشفى؟",
+                    options: [
+                        "الأطباء فقط.",
+                        "فريق مكافحة العدوى فقط.",
+                        "طاقم التمريض فقط.",
+                        "جميع العاملين في المستشفى."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 3,
+                    question: "أي من التالي غير مذكور كخطر محتمل يواجه العاملين في الرعاية الصحية؟",
+                    options: [
+                        "جروح الوخز بالإبر.",
+                        "التعرض للميكروبات المقاومة للمضادات الحيوية.",
+                        "الانزلاق والسقوط على الأرضيات المبتلة.",
+                        "العدوى بالأمراض التنفسية والجلدية."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 4,
+                    question: "كيف يوفر المستشفى الحماية لموظفيه من هذه المخاطر؟",
+                    options: [
+                        "من خلال توفير أدوات الوقاية الشخصية.",
+                        "من خلال التطعيمات.",
+                        "من خلال التدريبات المستمرة.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 5,
+                    question: "ما هي أكثر طريقة انتقال العدوى شيوعًا في المستشفى؟",
+                    options: [
+                        "عبر الهواء.",
+                        "عبر الطعام الملوث.",
+                        "عبر التلامس المباشر أو غير المباشر.",
+                        "عبر الماء."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 6,
+                    question: "وفقًا \"للحظات الخمس\" لمنظمة الصحة العالمية، متى يجب تنفيذ نظافة اليدين؟",
+                    options: [
+                        "فقط قبل ملامسة المريض.",
+                        "فقط بعد ملامسة المريض.",
+                        "في خمس لحظات محددة أثناء رعاية المريض.",
+                        "فقط بعد لمس محيط المريض."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 7,
+                    question: "هل يرتدي القفازات اللاتكس يغني عن غسل اليدين؟",
+                    options: [
+                        "نعم، لأن القفازات مانعة لتسرب السوائل تمامًا.",
+                        "لا، لأن القفازات قد تحتوي على مسام ويمكن أن تتلوث الأيدي أثناء خلعها.",
+                        "فقط إذا كانت القفازات معقمة.",
+                        "نعم، ولكن فقط للإجراءات الجراحية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 8,
+                    question: "متى يكون غسل اليدين بالماء والصابون إلزاميًا بدلاً من استخدام المحلول الكحولي؟",
+                    options: [
+                        "دائمًا؛ الكحول غير فعال.",
+                        "عندما تكون الأيدي متسخة ظاهريًا أو عند رعاية مرضى الإسهال المعدي (مثل المطثية العسيرة).",
+                        "فقط قبل الأكل.",
+                        "بعد خلع القفازات، بغض النظر عن الحالة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 9,
+                    question: "ما هي المدة الصحيحة للغسل الروتيني لليدين بالماء والصابون؟",
+                    options: [
+                        "١٠-١٥ ثانية.",
+                        "٢٠-٣٠ ثانية.",
+                        "٤٠-٦٠ ثانية.",
+                        "٣-٥ دقائق."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 10,
+                    question: "ما هي المدة الصحيحة لدعك اليدين بالمحلول الكحولي؟",
+                    options: [
+                        "١٠-١٥ ثانية.",
+                        "٢٠-٣٠ ثانية.",
+                        "٤٠-٦٠ ثانية.",
+                        "٣-٥ دقائق."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 11,
+                    question: "أي من التالي يجعل غسل اليدين غير صحيح؟",
+                    options: [
+                        "الأظافر قصيرة ومقلمة بدون طلاء.",
+                        "استخدام المناديل الورقية للتجفيف.",
+                        "ارتداء الخواتم والإساور والأظافر الطويلة.",
+                        "اتباع الخطوات الصحيحة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 12,
+                    question: "ما هو الهدف من الاحتياطات القياسية؟",
+                    options: [
+                        "تطبيقها فقط للمرضى المصابين بعدوى معروفة.",
+                        "منع انتقال العدوى في جميع أقسام المستشفى لجميع المرضى.",
+                        "استبدال الحاجة إلى العزل.",
+                        "استخدامها فقط في أقسام العناية المركزة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 13,
+                    question: "أي من التالي هو من مكونات الاحتياطات القياسية؟",
+                    options: [
+                        "نظافة اليدين.",
+                        "استخدام أدوات الوقاية الشخصية.",
+                        "ممارسات الحقن الآمن.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 14,
+                    question: "متى يتم تطبيق الاحتياطات القياسية؟",
+                    options: [
+                        "فقط في غرفة الطوارئ.",
+                        "لجميع المرضى في جميع أقسام المستشفى، بغض النظر عن حالتهم الصحية.",
+                        "فقط عند الاشتباه بإصابة المريض بعدوى.",
+                        "فقط أثناء الإجراءات الجراحية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 15,
+                    question: "ما هي احتياطات العزل؟",
+                    options: [
+                        "احتياطات تطبق بدلاً من الاحتياطات القياسية.",
+                        "احتياطات تطبق عند الاشتباه بمرض معدي، بالإضافة إلى الاحتياطات القياسية.",
+                        "فقط لمرضى الأمراض المنقولة بالهواء.",
+                        "احتياطات لم تعد تستخدم في المستشفيات الحديثة."
+                    ],
+                    answer: "ب"
+                }
+            ],
+            2: [
+                {
+                    number: 16,
+                    question: "ما هي مدة الغسل الجراحي لليدين بالماء والبيتادين؟",
+                    options: [
+                        "٢٠-٣٠ ثانية.",
+                        "٤٠-٦٠ ثانية.",
+                        "٣-٥ دقائق.",
+                        "١٠ دقائق."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 17,
+                    question: "أي من التالي هو شرط أساسي لنظافة اليدين الصحيحة؟",
+                    options: [
+                        "أظافر طويلة للتنظيف تحتها بشكل أفضل.",
+                        "أظافر مغطاة بطلاء الأظافر.",
+                        "أظافر قصيرة ونظيفة وبدون طلاء.",
+                        "ارتداء ساعة معصب لتوقيت المدة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 18,
+                    question: "لماذا يجب تجفيف اليدين بالمناديل الورقية بعد الغسل بالماء والصابون؟",
+                    options: [
+                        "لأنه أكثر اقتصادًا.",
+                        "لأن اليدين المبللتان أكثر عرضة لنمو الميكروبات.",
+                        "لأن المناديل الورقية أكثر امتصاصًا.",
+                        "لأنه تقليد في المستشفى."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 19,
+                    question: "بعد الغسل الجراحي لليدين، كيف يجب تجفيفهما؟",
+                    options: [
+                        "بمنشفة قماشية مشتركة.",
+                        "بالهواء.",
+                        "بمناشف معقمة.",
+                        "بالمناديل الورقية."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 20,
+                    question: "خطوة \"دلك ظهر الأصابع\" في نظافة اليدين تقابل أي رقم في التقنية الموضحة في المستند؟",
+                    options: [
+                        "١",
+                        "٢",
+                        "٤",
+                        "٦"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 21,
+                    question: "خطوة \"دلك باطن اليدين\" تقابل أي رقم؟",
+                    options: [
+                        "١",
+                        "٢",
+                        "٤",
+                        "٦"
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 22,
+                    question: "خطوة \"دلك بطن الأصابع\" تقابل أي رقم؟",
+                    options: [
+                        "١",
+                        "٢",
+                        "٤",
+                        "٦"
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 23,
+                    question: "ما هو الهدف الأساسي من نظافة اليدين؟",
+                    options: [
+                        "ترطيب البشرة.",
+                        "الحد من انتقال الميكروبات.",
+                        "الامتثال لسياسة المستشفى.",
+                        "إزالة الأوساخ المرئية فقط."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 24,
+                    question: "أي نوع من نظافة اليدين مطلوب قبل تركيب القسطرة المركزية؟",
+                    options: [
+                        "الغسل الروتيني.",
+                        "المحلول الكحولي لليدين.",
+                        "الغسل الجراحي.",
+                        "شطف سريع بالماء."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 25,
+                    question: "عند استخدام المحلول الكحولي لليدين، ماذا يجب أن تفعل بعد تطبيق المنتج؟",
+                    options: [
+                        "امسح يديك على الزي الرسمي.",
+                        "اشطفهما بالماء فورًا.",
+                        "اتركهما حتى تجف تمامًا.",
+                        "ارتدي القفازات فورًا بينما اليدان مازالتان مبللتان."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 26,
+                    question: "ما هو الخطأ الشائع في تقنية نظافة اليدين؟",
+                    options: [
+                        "فرك اليدين معًا براحة اليد.",
+                        "إغفال مناطق مثل الإبهام وأطراف الأصابع.",
+                        "استخدام كمية كافية من الصابون.",
+                        "اتباع الوقت الموصى به."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 27,
+                    question: "يجب تنفيذ نظافة اليدين بعد أي من الأنشطة التالية؟",
+                    options: [
+                        "لمس سرير المريض.",
+                        "بعد إجراء يتضمن التعرض لسوائل الجسم.",
+                        "بعد خلع القفازات.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 28,
+                    question: "ما هو السبب الرئيسي الذي يجعل المجوهرات تتعارض مع نظافة اليدين؟",
+                    options: [
+                        "إنها باهظة الثمن ويمكن أن تضيع.",
+                        "يمكن أن تتلف القفازات.",
+                        "إنها تؤوي الميكروبات وتجعل تنظيف اليدين أقل فعالية.",
+                        "إنها مخالفة للزي الرسمي."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 29,
+                    question: "متى يفضل الغسل الروتيني بالماء والصابون على المحلول الكحولي؟",
+                    options: [
+                        "دائمًا.",
+                        "عندما لا تكون اليدان متسختين ظاهريًا.",
+                        "بعد رعاية مريض مصاب ببكتيريا MRSA.",
+                        "قبل تحضير الأدوية الوريدية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 30,
+                    question: "تقنية الدعك بالكحول هي نفسها تقنية الغسل بالماء والصابون.",
+                    options: [
+                        "صح",
+                        "خطأ"
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 31,
+                    question: "ما هي الخطوة الأخيرة في عملية نظافة اليدين بعد الغسل بالماء والصابون؟",
+                    options: [
+                        "وضع مرطب اليدين.",
+                        "إغلاق الصنبور باليدين العاريتين.",
+                        "تجفيف اليدين جيدًا بمنشفة ذات استخدام واحد.",
+                        "ارتداء القفازات."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 32,
+                    question: "لماذا من المهم تجنب استخدام الماء الساخن لغسل اليدين؟",
+                    options: [
+                        "لأنه أكثر تكلفة.",
+                        "لأنه يمكن أن يزيد من تهيج وجفاف الجلد.",
+                        "لأنه يقتل الجراثيم أكثر.",
+                        "لأنه غير مذكور في الإرشادات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 33,
+                    question: "ماذا يجب أن تفعل إذا لمست الحوض أثناء غسل اليدين؟",
+                    options: [
+                        "لا شيء، إنه جزء من العملية.",
+                        "اعتبر يديك ملوثتين وابدأ من جديد.",
+                        "جفف يديك كالمعتاد.",
+                        "أخبر مشرفك."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 34,
+                    question: "تم تطوير \"لحظات نظافة اليدين الخمس\" من قبل:",
+                    options: [
+                        "إدارة المستشفى.",
+                        "منظمة الصحة العالمية (WHO).",
+                        "مراكز مكافحة الأمراض (CDC).",
+                        "وزارة الصحة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 35,
+                    question: "اللحظة الثالثة من \"اللحظات الخمس\" هي \"بعد التعرض لإجراء أو لسوائل الجسم\". هذا يشمل:",
+                    options: [
+                        "قبل مساعدة المريض على الحركة.",
+                        "بعد التعامل مع قسطرة بولية.",
+                        "قبل ارتداء القفازات.",
+                        "بعد لمس محيط المريض."
+                    ],
+                    answer: "ب"
+                }
+            ],
+            3: [
+                {
+                    number: 36,
+                    question: "ما هو الفرق الرئيسي بين مطهرات الأسطح ومطهرات الأيدي؟",
+                    options: [
+                        "لا يوجد فرق؛ يمكن استخدامها بالتبادل.",
+                        "مطهرات الأسطح أقوى ولا يجب استخدامها على الجلد.",
+                        "مطهرات الأيدي أكثر فعالية على الأسطح.",
+                        "مطهرات الأسطح دائمًا تعتمد على الكحول."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 37,
+                    question: "أي تركيز من الكحول الشفاف يمكن استخدامه على الجلد والأسطح مثل شاشات المراقبة؟",
+                    options: [
+                        "٥٠٪",
+                        "٧٠٪",
+                        "٩٠٪",
+                        "١٠٠٪"
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 38,
+                    question: "ما هو الترتيب الصحيح لارتداء (donning) أدوات الوقاية الشخصية؟",
+                    options: [
+                        "الكمامة، الجاون، القفازات، واقي العين.",
+                        "الجاون، الكمامة، واقي العين، القفازات.",
+                        "القفازات، الجاون، الكمامة، واقي العين.",
+                        "واقي العين، الكمامة، الجاون، القفازات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 39,
+                    question: "ما هو الترتيب الصحيح لخلع (doffing) أدوات الوقاية الشخصية؟",
+                    options: [
+                        "القفازات، نظافة اليدين، واقي العين، الجاون، نظافة اليدين، الكمامة، نظافة اليدين.",
+                        "الكمامة، الجاون، القفازات، واقي العين.",
+                        "الجاون، القفازات، الكمامة، واقي العين.",
+                        "القفازات، الجاون، واقي العين، الكمامة."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 40,
+                    question: "لأي نوع من العزل يتم تحديد أن الكمامة الجراحية أو N95 تخلع خارج غرفة المريض؟",
+                    options: [
+                        "عزل التلامس.",
+                        "عزل الرذاذ.",
+                        "عزل الهواء.",
+                        "العزل الوقائي."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 41,
+                    question: "أي من التالي هو من متطلبات \"احتياطات عزل الرذاذ\"؟",
+                    options: [
+                        "ارتداء جاون معقم.",
+                        "ارتداء كمامة جراحية.",
+                        "وضع المريض في غرفة ضغط سلبي.",
+                        "استخدام سماعة طبية مخصصة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 42,
+                    question: "ما هي طريقة الانتقال الأساسية للعدوى التي تتطلب \"عزل الهواء\"؟",
+                    options: [
+                        "التلامس المباشر مع الجروح.",
+                        "الرذاذ الكبير من السعال.",
+                        "الميكروبات العالقة في الهواء لمسافات طويلة.",
+                        "الطعام الملوث."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 43,
+                    question: "أي من هذه الأمراض يضرب كمثال لعزل الهواء؟",
+                    options: [
+                        "الإنفلونزا",
+                        "بكتيريا MRSA",
+                        "السل (التدرن)",
+                        "الالتهاب الكبدي ب"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 44,
+                    question: "لعزل التلامس، ما هي أدوات الوقاية الشخصية المطلوبة قبل أي تفاعل مع المريض؟",
+                    options: [
+                        "كمامة N95 والقفازات.",
+                        "الجاون والقفازات.",
+                        "الكمامة الجراحية والجاون.",
+                        "واقي الوجه والقفازات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 45,
+                    question: "ما الذي يعنيه الاختصار MRSA؟",
+                    options: [
+                        "المكورة العنقودية الذهبية المقاومة المتعددة",
+                        "المكورة العنقودية الذهبية المقاومة للميثيسيلين",
+                        "حساسية جهازية مقاومة رئيسية",
+                        "تنبيه نظام الاستجابة الطبية"
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 46,
+                    question: "كيف تنتقل الميكروبات مثل MRSA بشكل أساسي بين المرضى؟",
+                    options: [
+                        "عبر نظام تكييف الهواء.",
+                        "عبر أيدي العاملين في الرعاية الصحية.",
+                        "عبر الطعام الملوث.",
+                        "بمشاركة مواد القراءة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 47,
+                    question: "أي نوع من العزل مطلوب لمريض مصاب ببكتيريا MRSA؟",
+                    options: [
+                        "عزل الرذاذ.",
+                        "عزل الهواء.",
+                        "عزل التلامس.",
+                        "لا حاجة للعزل."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 48,
+                    question: "عند التعامل مع مريض في عزل تلامس بسبب MRSA، أين يجب وضع أدوات الوقاية الشخصية؟",
+                    options: [
+                        "بجانب سرير المريض.",
+                        "في الممر.",
+                        "خارج غرفة المريض.",
+                        "داخل خزانة تخزين مركزية."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 49,
+                    question: "ما الذي يجب فعله مع معدات مثل جهاز قياس ضغط الدم المستخدم لمريض مصاب ببكتيريا MRSA؟",
+                    options: [
+                        "يجب استخدامه لهذا المريض فقط أو تطهيره جيدًا بعد الاستخدام.",
+                        "يمكن استخدامه على المريض التالي بعد مسح سريع.",
+                        "يجب التخلص منه فورًا.",
+                        "يجب إرساله إلى قسم التعقيم المركزي بعد كل استخدام."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 50,
+                    question: "ما هو الغرض من واقي الوجه أو النظارات الواقية؟",
+                    options: [
+                        "حماية العينين من رذاذ سوائل الجسم.",
+                        "تحسين الرؤية.",
+                        "إبعاد الغبار.",
+                        "إنه إكسسوار موضة."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 51,
+                    question: "يستخدم الجاون في المقام الأول لـ:",
+                    options: [
+                        "إبقاء الزي الرسمي نظيفًا.",
+                        "حماية الجلد والملابس من ملامسة الدم وسوائل الجسم.",
+                        "الظهور بمظهر أكثر احترافية.",
+                        "تدفئة المريض."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 52,
+                    question: "ما هو الإجراء الأكثر أهمية الذي يجب تنفيذه فورًا بعد خلع القفازات؟",
+                    options: [
+                        "توثيق الإجراء.",
+                        "تنفيذ نظافة اليدين.",
+                        "التحدث إلى المريض.",
+                        "التخلص من القفازات في سلة المهملات العادية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 53,
+                    question: "أي نوع من الكمامات مطلوب لعزل الهواء؟",
+                    options: [
+                        "كمامة جراحية بسيطة.",
+                        "كمامة قماشية.",
+                        "كمامة عالية الكفاءة (مثل N95).",
+                        "لا حاجة للكمامة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 54,
+                    question: "ما هو التركيز الموصى به للكلور لتطهير الأسطح في المناطق عالية الخطورة؟",
+                    options: [
+                        "٥٠٠ جزء في المليون",
+                        "١٠٠٠ جزء في المليون",
+                        "٥٠٠٠ جزء في المليون",
+                        "١٠٠٠٠ جزء في المليون"
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 55,
+                    question: "لانسكاب دم كبير، ما هو تركيز الكلور الموصى به للتطهير؟",
+                    options: [
+                        "٥٠٠ جزء في المليون",
+                        "١٠٠٠ جزء في المليون",
+                        "٥٠٠٠ جزء في المليون",
+                        "١٠٠٠٠ جزء في المليون"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 56,
+                    question: "أي مطهر يذكر لتعقيم الآلات في قسم التعقيم المركزي؟",
+                    options: [
+                        "الكحول",
+                        "البيتادين",
+                        "السيدكس",
+                        "الكلورهيكسيدين"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 57,
+                    question: "ما هي مدة صلاحية الأدوات المطهرة؟",
+                    options: [
+                        "١ يوم",
+                        "١ أسبوع",
+                        "١ شهر",
+                        "١ سنة"
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 58,
+                    question: "ما هي مدة صلاحية الأدوات المعقمة؟",
+                    options: [
+                        "١ يوم",
+                        "١ أسبوع",
+                        "١ شهر",
+                        "غير محدودة"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 59,
+                    question: "كيف يمكنك التأكد من أن عبوة الأدوات المعقمة آمنة للاستخدام؟",
+                    options: [
+                        "من رائحة العبوة.",
+                        "من وزن العبوة.",
+                        "من تغيير لون المؤشر الكيميائي.",
+                        "بسؤال زميل."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 60,
+                    question: "يجب اعتبار الأداة غير معقمة إذا:",
+                    options: [
+                        "لم يتغير لون المؤشر الكيميائي.",
+                        "كانت العبوة ممزقة أو مبللة.",
+                        "انتهى تاريخ الصلاحية.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                }
+            ],
+            4: [
+                {
+                    number: 61,
+                    question: "ما هي ممارسة \"الحقن الآمن\"؟",
+                    options: [
+                        "حقن يعطى بسرعة.",
+                        "حقن لا يسبب ضررًا للمريض أو مقدم الخدمة ويتم التخلص منه بطريقة آمنة.",
+                        "حقن يستخدم أصغر إبرة ممكنة.",
+                        "حقن يعطى فقط من قبل طبيب."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 62,
+                    question: "ما هي تقنية \"عدم اللمس\" أثناء الحقن؟",
+                    options: [
+                        "عدم لمس المريض على الإطلاق.",
+                        "تجنب لمس أي جزء من الحقنة سيدخل المريض أو موقع الإدخال بعد التطهير.",
+                        "استخدام القفازات لكل حقنة.",
+                        "جعل المريض ينظر بعيدًا."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 63,
+                    question: "بعد إعطاء الحقن، ماذا يجب أن تفعل بالإبرة؟",
+                    options: [
+                        "إعادة تغطيتها بحذر بكلتا اليدين.",
+                        "إعادة تغطيتها باستخدام طريقة السكووب (اليد الواحدة) إذا كان ذلك ضروريًا للغاية.",
+                        "التخلص من السرنجة والإبرة كوحدة واحدة مباشرة في صندوق الأمان فورًا.",
+                        "كسر الإبرة قبل التخلص منها."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 64,
+                    question: "ما هو الفرق الرئيسي بين عبوات الأدوية أحادية الاستخدام ومتعددة الاستخدام؟",
+                    options: [
+                        "العبوات أحادية الاستخدام تحتوي على مادة حافظة مضادة للميكروبات.",
+                        "يمكن استخدام العبوات متعددة الاستخدام لعدة مرضى.",
+                        "العبوات متعددة الاستخدام تحتوي على مادة حافظة مضادة للميكروبات.",
+                        "يمكن استخدام العبوات أحادية الاستخدام لمدة ٢٨ يومًا بعد الفتح."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 65,
+                    question: "كم من الوقت يمكن استخدام عبوة الأدوية متعددة الجرعات بعد فتحها لأول مرة؟",
+                    options: [
+                        "يجب استخدامها فورًا.",
+                        "لمدة ٢٤ ساعة.",
+                        "لمدة ٢٨ يوم أو حسب تعليمات الشركة المصنعة.",
+                        "حتى انتهاء الدواء."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 66,
+                    question: "قبل سحب الدواء من عبوة متعددة الجرعات، ما الذي يجب فعله؟",
+                    options: [
+                        "رج العبوة بقوة.",
+                        "مسح الغطاء المطاطي بمسحة كحولية وتركها حتى تجف.",
+                        "تدفئة العبوة في اليدين.",
+                        "فحص لون الدواء فقط."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 67,
+                    question: "ما هو الممنوع عند استخدام عبوة متعددة الجرعات؟",
+                    options: [
+                        "كتابة تاريخ الفتح عليها.",
+                        "استخدام سرنجة معقمة جديدة لكل عملية سحب.",
+                        "ترك الإبرة في العبوة.",
+                        "تخزينها في الثلاجة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 68,
+                    question: "أي أسلوب عمل يستخدم عند التعامل مع الجلد السليم أو الأغشية المخاطية؟",
+                    options: [
+                        "الأسلوب المعقم.",
+                        "الأسلوب النظيف.",
+                        "الأسلوب المانع للتلوث.",
+                        "الأسلوب الجراحي."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 69,
+                    question: "أي أسلوب عمل يستخدم لإجراءات مثل الحقن العضلي أو تركيب القسطرة الوريدية الطرفية؟",
+                    options: [
+                        "الأسلوب المعقم.",
+                        "الأسلوب النظيف.",
+                        "الأسلوب المانع للتلوث.",
+                        "لا حاجة لأسلوب محدد."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 70,
+                    question: "أي أسلوب عمل يستخدم لتركيب القسطرة الوريدية المركزية؟",
+                    options: [
+                        "الأسلوب المعقم.",
+                        "الأسلوب النظيف.",
+                        "الأسلوب المانع للتلوث.",
+                        "لا حاجة لأسلوب محدد."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 71,
+                    question: "كيف يجب تنظيف جهاز قياس السكر بين المرضى؟",
+                    options: [
+                        "لا يحتاج للتنظيف.",
+                        "بالماء والصابون.",
+                        "بمسحه بمسحة كحولية.",
+                        "بمحلول الكلور."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 72,
+                    question: "كيف يجب استخدام قلم الإنسولين؟",
+                    options: [
+                        "يمكن مشاركته بين المرضى.",
+                        "يجب تخصيصه لمريض واحد لعدة حقن.",
+                        "يجب استخدامه مرة واحدة فقط والتخلص منه.",
+                        "يجب تخزينه في غرفة الأدوية المشتركة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 73,
+                    question: "ما هو التسلسل الصحيح لتركيب قسطرة وريدية طرفية؟",
+                    options: [
+                        "نظف اليدين، ارتدي القفازات، طهر الجلد، أدخل القسطرة.",
+                        "طهر الجلد، ارتدي القفازات، أدخل القسطرة، نظف اليدين.",
+                        "أدخل القسطرة، طهر الجلد، ارتدي القفازات.",
+                        "ارتدي القفازات، طهر الجلد، أدخل القسطرة، نظف اليدين."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 74,
+                    question: "ماذا يجب أن تفعل إذا فشلت المحاولة الأولى لتركيب قسطرة وريدية طرفية؟",
+                    options: [
+                        "استخدام نفس القسطرة لمحاولة ثانية.",
+                        "استخدام قسطرة جديدة ومعقمة لمحاولة جديدة.",
+                        "اطلب من المريض العثور على وريد أفضل.",
+                        "استخدام قسطرة ذات مقياس أكبر."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 75,
+                    question: "كم مرة يجب تغيير غيار القسطرة الوريدية الطرفية؟",
+                    options: [
+                        "أبدًا، إلا إذا سقط.",
+                        "فقط عندما تكون متسخة ظاهريًا أو مبللة أو منزاحة.",
+                        "كل ٢٤ ساعة.",
+                        "كل أسبوع."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 76,
+                    question: "كم مرة يجب تقييم موقع القسطرة الوريدية الطرفية للبحث عن علامات العدوى؟",
+                    options: [
+                        "يوميًا.",
+                        "أسبوعيًا.",
+                        "فقط عندما يشكو المريض من الألم.",
+                        "فقط وقت التركيب."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 77,
+                    question: "متى يجب إزالة القسطرة الوريدية الطرفية؟",
+                    options: [
+                        "عندما لا تكون هناك حاجة إليها.",
+                        "إذا ظهرت علامات الالتهاب أو العدوى.",
+                        "بشكل روتيني كل ٧٢-٩٦ ساعة.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 78,
+                    question: "ما هو \"الحزمة الوقائية للعدوى\"؟",
+                    options: [
+                        "مجموعة من المستلزمات للعزل.",
+                        "مجموعة من الإجراءات التي، عند تنفيذها معًا، تقلل من فرصة العدوى.",
+                        "مجموعة من المضادات الحيوية.",
+                        "نوع جديد من المطهر."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 79,
+                    question: "أي من التالي هو مثال على حزمة وقائية للعدوى؟",
+                    options: [
+                        "الحزمة للوقاية من عدوى مجرى الدم المرتبطة بالقسطرة المركزية.",
+                        "الحزمة للوقاية من عدوى المسالك البولية.",
+                        "الحزمة للوقاية من الالتهاب الرئوي المرتبط بالتنفس الصناعي.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 80,
+                    question: "ما هي أنواع العدوى التي يتم ترصدها في المستشفى؟",
+                    options: [
+                        "عدوى مجرى الدم.",
+                        "عدوى المسالك البولية.",
+                        "الالتهاب الرئوي والعدوى بالميكروبات المقاومة.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 81,
+                    question: "ما لون الكيس المستخدم للنفايات العادية غير الخطرة؟",
+                    options: [
+                        "أحمر",
+                        "أسود",
+                        "أزرق",
+                        "أصفر"
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 82,
+                    question: "ما لون الكيس المستخدم للنفايات الطبية الخطرة الملوثة بسوائل الجسم؟",
+                    options: [
+                        "أحمر",
+                        "أسود",
+                        "أزرق",
+                        "أصفر"
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 83,
+                    question: "ما اللون المستخدم للمفروشات المتسخة؟",
+                    options: [
+                        "أسود",
+                        "أحمر",
+                        "أزرق",
+                        "أصفر"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 84,
+                    question: "أين يجب تحضير الأدوية؟",
+                    options: [
+                        "بجانب سرير المريض.",
+                        "في غرفة مخصصة ونظيفة.",
+                        "في محطة التمريض.",
+                        "في الممر."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 85,
+                    question: "هل يسمح بإعادة معالجة الآلات في أقسام المستشفى؟",
+                    options: [
+                        "نعم، يتم تشجيعه.",
+                        "لا، يسمح فقط في قسم التعقيم المركزي.",
+                        "نعم، ولكن فقط للآلات الحرجة.",
+                        "لا، جميع الآلات لاستخدام واحد."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 86,
+                    question: "كيف يجب نقل الآلات الملوثة إلى قسم التعقيم المركزي؟",
+                    options: [
+                        "بشكل مفكوك في سلة.",
+                        "في حاويات مغلقة بإحكام.",
+                        "محمولة باليد.",
+                        "في صواني مفتوحة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 87,
+                    question: "ما هي سياسة الزائرين للمرضى المصابين أو المشتبه في إصابتهم بميكروب وبائي؟",
+                    options: [
+                        "الزيارة ممنوعة.",
+                        "الزيارة مسموحة دون قيود.",
+                        "الزيارة محدودة بأضيق الحدود الممكنة، مع ارتداء الزائرين لأدوات الوقاية الشخصية المناسبة.",
+                        "يُسمح للأطفال فقط بالزيارة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 88,
+                    question: "كيف يجب التعامل مع المفروشات المتسخة؟",
+                    options: [
+                        "يجب نفضها بقوة لإزالة الأتربة.",
+                        "يجب لفها أو طيها للداخل بعناية لمنع انتشار الملوثات ووضعها في أكياس زرقاء.",
+                        "يجب وضعها في أكياس حمراء.",
+                        "يمكن وضعها على الأرض مؤقتًا."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 89,
+                    question: "عند التعامل مع مريض متوفي، ما هي أدوات الوقاية الشخصية المطلوبة؟",
+                    options: [
+                        "لا حاجة لأدوات وقاية شخصية خاصة.",
+                        "قفازات لاتكس، مريلة بلاستيكية، كمامة جراحية، ونظارات واقية.",
+                        "القفازات فقط.",
+                        "بدلة كاملة للجسم."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 90,
+                    question: "في عيادة الأسنان، ما الذي يجب تغطيته بغطاء بلاستيكي للاستخدام الواحد قبل علاج المريض؟",
+                    options: [
+                        "كرسي الأسنان فقط.",
+                        "الأزرار والمفاتيح ومقابض الإضاءة التي يحتمل تلوثها.",
+                        "الأرضية.",
+                        "أدوات طبيب الأسنان."
+                    ],
+                    answer: "ب"
+                }
+            ],
+            5: [
+                {
+                    number: 111,
+                    question: "تم تشخيص مريض بالإنفلونزا. ما نوع احتياطات العزل التي يجب بدؤها؟",
+                    options: [
+                        "عزل التلامس.",
+                        "عزل الرذاذ.",
+                        "عزل الهواء.",
+                        "العزل الوقائي."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 112,
+                    question: "أنت على وشك دخول غرفة مريض مصاب بالسل. أي كمامة مطلوبة؟",
+                    options: [
+                        "كمامة جراحية قياسية.",
+                        "كمامة قماشية.",
+                        "كمامة N95 أو كمامة عالية الكفاءة.",
+                        "لا حاجة للكمامة إذا كنت ترتدي جاون."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 113,
+                    question: "بعد سحب عينة دم، لديك إبرة مستخدمة في يدك. إجراءك الفوري يجب أن يكون:",
+                    options: [
+                        "وضعها على طاولة المريض.",
+                        "إعادة تغطيتها ثم التخلص منها.",
+                        "التخلص من السرنجة والإبرة كوحدة واحدة مباشرة في صندوق الأمان.",
+                        "إعطاؤها للمريض."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 114,
+                    question: "لاحظت زميلًا لا ينفذ نظافة اليدين بعد خلع القفازات. ما هو أفضل مسار للعمل بناءً على سياسة المستشفى؟",
+                    options: [
+                        "تجاهله؛ إنه ليس شأنك.",
+                        "الإبلاغ عنه فورًا للإدارة.",
+                        "تذكيره بلطف بالإجراء الصحيح.",
+                        "افعل الشيء نفسه لتوفير الوقت."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 115,
+                    question: "كانت عبوة محلول ملحي متعددة الجرعات قيد الاستخدام لمدة ٣٠ يومًا. تاريخ انتهاء الصلاحية على العبوة لم ينتهِ، ولكن تم فتحها منذ ٣٠ يومًا. ماذا يجب أن تفعل؟",
+                    options: [
+                        "استخدمها لأن تاريخ الانتهاء الأصلي لا يزال ساريًا.",
+                        "تخلص منها، لأنه يجب استخدامها خلال ٢٨ يومًا من الفتح.",
+                        "افحصها للتأكد من عدم وجود عكورة واستخدمها إذا كانت صافية.",
+                        "اغليها لتعقيمها قبل الاستخدام."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 116,
+                    question: "عند تحضير دواء وريدي من عبوة متعددة الجرعات، يجب عليك استخدام:",
+                    options: [
+                        "نفس السرنجة لنفس المريض طوال اليوم.",
+                        "سرنجة معقمة جديدة لكل عملية سحب، حتى لنفس المريض.",
+                        "سرنجة تم استخدامها لدواء آخر ولكن تم شطفها.",
+                        "سرنجة تم مسحها بالكحول."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 117,
+                    question: "المؤشر الكيميائي على عبوة أدوات معقمة لم يتغير لونه. هذا يعني:",
+                    options: [
+                        "الأداة معقمة بالتأكيد.",
+                        "عملية التعقيم قد فشلت، ولا يجب استخدام الأداة.",
+                        "المؤشر معطل، لكن الأداة آمنة.",
+                        "يجب استخدام الأداة ولكن بحذر إضافي."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 118,
+                    question: "مريض مصاب بعدوى MRSA معروفة في جرح يحتاج إلى النقل إلى قسم الأشعة. ما الذي يجب فعله؟",
+                    options: [
+                        "إلغاء النقل.",
+                        "تغطية الجرح، استخدام مسارات مخصصة، وإخطار القسم المستقبل.",
+                        "نقل المريض كالمعتاد دون أي إجراءات خاصة.",
+                        "اطلب من المريض المشي بنفسه."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 119,
+                    question: "أنت تنظف سطحًا في العناية المركزة بعد خروج المريض. ما المحلول الذي يجب استخدامه؟",
+                    options: [
+                        "ماء عادي.",
+                        "ماء وصابون فقط.",
+                        "كلور بتركيز ١٠٠٠ جزء في المليون.",
+                        "محاليل كحولية لليدين."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 120,
+                    question: "وجدت إبرة مستخدمة في كيس قمامة أسود عادي. ما هو الإجراء المناسب؟",
+                    options: [
+                        "اتركها هناك؛ إنها مشكلة طاقم النظافة.",
+                        "التقطها بعناية وضعها في صندوق الأمان.",
+                        "لا تتعامل معها مباشرة؛ استخدم وسائل ميكانيكية (مثل الملقط) لاسترجاعها ووضعها في صندوق أمان، ثم أبلغ عن الحادث.",
+                        "أغلق الكيس وتخلص منه."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 121,
+                    question: "ما لون الكيس المستخدم للنفايات العادية مثل الأوراق؟",
+                    options: [
+                        "أحمر",
+                        "أسود",
+                        "أزرق",
+                        "أصفر"
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 122,
+                    question: "ما لون الكيس المستخدم للنفايات الطبية الخطرة الملوثة بسوائل الجسم؟",
+                    options: [
+                        "أحمر",
+                        "أسود",
+                        "أزرق",
+                        "أصفر"
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 123,
+                    question: "ما لون الكيس المستخدم للمفروشات والملاءات المتسخة؟",
+                    options: [
+                        "أحمر",
+                        "أسود",
+                        "أزرق",
+                        "أصفر"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 124,
+                    question: "\"صندوق الأمان\" يستخدم للتخلص من:",
+                    options: [
+                        "النفايات الورقية العامة.",
+                        "عبوات الأدوية المستخدمة.",
+                        "الآلات الحادة والإبر.",
+                        "المفروشات المتسخة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 125,
+                    question: "متى يجب التخلص من صندوق الأمان (حاوية الآلات الحادة)؟",
+                    options: [
+                        "عندما يكون ممتلئًا بنسبة ١٠٠٪.",
+                        "عندما يكون ممتلئًا بنسبة ١/٤.",
+                        "عندما يكون ممتلئًا بنسبة ٣/٤ (ثلاثة أرباع).",
+                        "في نهاية كل يوم، بغض النظر عن درجة امتلائه."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 126,
+                    question: "كيف يتم التخلص من النفايات الطبية السائلة؟",
+                    options: [
+                        "تصب مباشرة في أي حوض.",
+                        "تصب في البالوعة مع كميات وفيرة من الماء، وتطهير المنطقة بالكلور.",
+                        "تترك في حاويات مفتوحة للتبخر.",
+                        "تخلط مع النفايات الصلبة في أكياس حمراء."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 127,
+                    question: "عند التعامل مع النفايات الطبية السائلة، ما هي أدوات الوقاية الشخصية المطلوبة؟",
+                    options: [
+                        "لا حاجة لأدوات وقاية شخصية خاصة.",
+                        "القفازات والمريلة البلاستيكية.",
+                        "أدوات وقاية شخصية كاملة للعزل الهوائي.",
+                        "الكمامة فقط."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 128,
+                    question: "ما هي القاعدة الأساسية للتعامل مع المفروشات المتسخة؟",
+                    options: [
+                        "نفضها بقوة لإزالة الأتربة.",
+                        "لفها أو طيها للداخل بعناية لمنع انتشار الملوثات.",
+                        "حملها مكشوفة إلى المغسلة المركزية.",
+                        "خلطها مع المفروشات النظيفة في نفس العربة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 129,
+                    question: "كيف يجب نقل المفروشات المتسخة والنظيفة؟",
+                    options: [
+                        "في نفس العربة لتوفير الوقت.",
+                        "في عربات منفصلة ومغطاة.",
+                        "باليد، بدون أي عربة.",
+                        "لا يهم طالما يتم ذلك بسرعة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 130,
+                    question: "أين يجب تخزين أكياس المفروشات المتسخة بشكل مؤقت في القسم؟",
+                    options: [
+                        "في غرفة المستلزمات النظيفة.",
+                        "في غرفة تحضير الأدوية.",
+                        "في غرفة الخدمات \"غير النظيفة\".",
+                        "في محطة التمريض."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 131,
+                    question: "كم مرة يجب تنظيف عربات المفروشات؟",
+                    options: [
+                        "أبدًا، فهي ذاتية التنظيف.",
+                        "أسبوعيًا أو عندما تتلوث ظاهريًا في أي وقت.",
+                        "فقط في نهاية كل عام.",
+                        "بعد كل استخدام."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 132,
+                    question: "ما هو المحلول المستخدم لتطهير عربات المفروشات؟",
+                    options: [
+                        "كحول ٧٠٪",
+                        "كلور بتركيز ١٠٠٠ جزء في المليون",
+                        "ماء وصابون فقط",
+                        "سيدكس"
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 133,
+                    question: "جميع النفايات الناتجة عن غرف العزل تعتبر:",
+                    options: [
+                        "نفايات عادية.",
+                        "نفايات قابلة لإعادة التدوير.",
+                        "نفايات طبية خطرة.",
+                        "غير معديّة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 134,
+                    question: "عند التعامل مع انسكاب الدم، ما هي الخطوة الأولى بعد ارتداء أدوات الوقاية الشخصية؟",
+                    options: [
+                        "تغطية الانسكاب بمسحوق الكلور.",
+                        "امتصاص الانسكاب بمناديل ورقية أو مادة ماصة.",
+                        "تركه لطاقم النظافة.",
+                        "رشه بالكحول."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 135,
+                    question: "بعد امتصاص انسكاب الدم، ما هي الخطوة الحاسمة التالية؟",
+                    options: [
+                        "التخلص من المادة الماصة في كيس أسود.",
+                        "تنظيف المنطقة بالماء والصابون.",
+                        "تطهير المنطقة بمحلول كلور مناسب.",
+                        "ترك المنطقة لتجف في الهواء."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 136,
+                    question: "ما هو التركيز الموصى به للكلور لتطهير انسكاب دم كبير؟",
+                    options: [
+                        "٥٠٠ جزء في المليون",
+                        "١٠٠٠ جزء في المليون",
+                        "٥٠٠٠ جزء في المليون",
+                        "١٠٠٠٠ جزء في المليون"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 137,
+                    question: "يجب وضع المفروشات المتسخة في:",
+                    options: [
+                        "أكياس حمراء.",
+                        "أكياس سوداء.",
+                        "أكياس زرقاء.",
+                        "أكياس بلاستيكية شفافة."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 138,
+                    question: "يجب نقل المفروشات النظيفة في:",
+                    options: [
+                        "نفس العربة المستخدمة للمفروشات المتسخة.",
+                        "عربة مخصصة ومغطاة للمفروشات النظيفة.",
+                        "سلال مفتوحة.",
+                        "أكياس حمراء."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 139,
+                    question: "ما الذي يجب التحقق منه عند التعامل مع المفروشات المتسخة؟",
+                    options: [
+                        "اسم المريض على المفروشات.",
+                        "جودة القماش.",
+                        "عدم وجود أي أجسام حادة (مثل الإبر) عالقة فيها.",
+                        "ثبات اللون."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 140,
+                    question: "كيف يجب معالجة الحاويات القابلة لإعادة الاستخدام التي كانت تحتوي على نفايات طبية سائلة؟",
+                    options: [
+                        "يمكن إعادة استخدامها فور إفراغها.",
+                        "يجب إرسالها إلى قسم التعقيم المركزي لإعادة المعالجة.",
+                        "يجب التخلص منها في الكيس الأحمر.",
+                        "يجب شطفها بالماء وإعادة استخدامها."
+                    ],
+                    answer: "ب"
+                }
+            ],
+            6: [
+                {
+                    number: 141,
+                    question: "حسب مستويات الخطورة، كم مرة يجب تنظيف المناطق \"قليلة الخطورة\" مثل المكاتب الإدارية؟",
+                    options: [
+                        "مرتين يوميًا.",
+                        "بعد كل استخدام.",
+                        "على الأقل مرة واحدة يوميًا وعند الاتساخ.",
+                        "مرة واحدة فقط في الأسبوع."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 142,
+                    question: "المناطق \"عالية الخطورة\"، مثل العناية المركزة وغسيل الكلى، يجب تنظيفها:",
+                    options: [
+                        "مرة واحدة في اليوم.",
+                        "في بداية ونهاية كل نوبة عمل وبين المرضى.",
+                        "فقط عندما يتم خروج المريض.",
+                        "مرة واحدة في الأسبوع."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 143,
+                    question: "ما هي الطريقة الموصى بها لتنظيف الأرضيات والأسطح؟",
+                    options: [
+                        "المسح الجاف.",
+                        "طريقة المسح/الغسل الرطب.",
+                        "الكنس.",
+                        "استخدام مكنسة كهربائية بدون فلتر HEPA."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 144,
+                    question: "كيف يجب تخزين الأدوات المعقمة والمطهرة على الأرفف؟",
+                    options: [
+                        "الأدوات المطهرة في الأعلى، الأدوات المعقمة في الأسفل.",
+                        "الأدوات المعقمة في الأعلى، الأدوات المطهرة في المنتصف، ولا شيء على الرف السفلي.",
+                        "يمكن خلطها معًا.",
+                        "فقط على الرف السفلي."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 145,
+                    question: "ما هي مدة صلاحية الأداة المطهرة؟",
+                    options: [
+                        "١ يوم",
+                        "١ أسبوع",
+                        "١ شهر",
+                        "١ سنة"
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 146,
+                    question: "ما هي مدة صلاحية عبوة الأدوات المعقمة؟",
+                    options: [
+                        "١ يوم",
+                        "١ أسبوع",
+                        "١ شهر",
+                        "غير محدودة"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 147,
+                    question: "كيف يمكنك التحقق من أن أداة ما قد تم تعقيمها؟",
+                    options: [
+                        "من رائحة العبوة.",
+                        "من تغيير لون المؤشر الكيميائي.",
+                        "من وزن العبوة.",
+                        "بسؤال الشخص الذي قام بتغليفها."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 148,
+                    question: "يجب اعتبار الأداة غير معقمة إذا:",
+                    options: [
+                        "كان الغلاف ممزقًا أو مبللاً.",
+                        "لم يتغير لون المؤشر الكيميائي.",
+                        "انتهى تاريخ الصلاحية.",
+                        "جميع ما سبق."
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 149,
+                    question: "ما هو القسم الوحيد المسموح له بإعادة معالجة الآلات؟",
+                    options: [
+                        "في أي جناح به حوض.",
+                        "في قسم التعقيم المركزي.",
+                        "في عيادة الأسنان.",
+                        "في غرفة العمليات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 150,
+                    question: "كيف يجب نقل الآلات الملوثة إلى قسم التعقيم المركزي؟",
+                    options: [
+                        "بشكل مفكوك في صينية مفتوحة.",
+                        "محمولة باليد.",
+                        "في حاويات مغلقة بإحكام.",
+                        "في أكياس بلاستيكية حمراء."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 151,
+                    question: "كم مرة يجب تنظيف العربات المستخدمة لنقل الآلات؟",
+                    options: [
+                        "أسبوعيًا أو عند التلوث الظاهري في أي وقت.",
+                        "شهريًا.",
+                        "أبدًا.",
+                        "بعد كل استخدام."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 152,
+                    question: "ما هو الغرض من إبقاء الآلات رطبة في الحاوية أثناء النقل؟",
+                    options: [
+                        "لتسهيل تنظيفها.",
+                        "لمنع جفاف المادة العضوية، مما يجعل التنظيف صعبًا.",
+                        "لإبقائها معقمة.",
+                        "لتطهيرها أثناء النقل."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 153,
+                    question: "ما الذي يجب استخدامه لإبقاء الآلات رطبة أثناء النقل؟",
+                    options: [
+                        "الكحول",
+                        "الكلور",
+                        "الماء ومنظف إنزيمي/صابون",
+                        "الفورمالديهايد"
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 154,
+                    question: "يجب إجراء التنظيف العميق لأجنحة المستشفى:",
+                    options: [
+                        "كل أسبوع.",
+                        "كل شهر.",
+                        "كل عام.",
+                        "فقط عندما يكون هناك تفشي للعدوى."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 155,
+                    question: "في عيادة الأسنان، ما الذي يجب تغطيته بأغطية بلاستيكية للاستخدام الواحد قبل علاج المريض؟",
+                    options: [
+                        "كرسي الأسنان فقط.",
+                        "الأزرار والمفاتيح ومقابض الإضاءة التي يحتمل تلوثها.",
+                        "حذاء طبيب الأسنان.",
+                        "ملابس المريض."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 156,
+                    question: "ما هي الخطوة الحاسمة بعد علاج كل مريض في عيادة الأسنان؟",
+                    options: [
+                        "ادعو المريض التالي فورًا.",
+                        "تنظيف وتطهير وحدة الأسنان والأسطح التي يحتمل تلوثها.",
+                        "تغيير القفازات فقط.",
+                        "توثيق الإجراء."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 157,
+                    question: "كيف يجب صيانة خطوط الشفط في وحدة الأسنان لتقليل نمو الميكروبات؟",
+                    options: [
+                        "لا تحتاج إلى أي صيانة.",
+                        "اترك الماء يجري عبر الخطوط لبضع دقائق في بداية كل يوم عمل وبعد كل مريض.",
+                        "نفخ الهواء through them forcefully.",
+                        "تنظيفها مرة واحدة في السنة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 158,
+                    question: "أين يجب التخلص من الأسنان المخلوعة؟",
+                    options: [
+                        "في الكيس الأسود العادي.",
+                        "في صندوق الأمان للآلات الحادة.",
+                        "إعطاؤها للمريض كتذكار.",
+                        "في الكيس الأحمر للنفايات الخطرة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 159,
+                    question: "أثناء إجراءات الأسنان، ما هي الطريقة الصحيحة للتعامل مع إبرة تحتاج إلى إعادة تغطية؟",
+                    options: [
+                        "استخدم كلتا اليدين.",
+                        "استخدم تقنية السكووب (اليد الواحدة).",
+                        "اطلب من المريض الإمساك بالغطاء.",
+                        "لا تعيد التغطية أبدًا؛ تخلص منها فورًا بدون غطاء."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 160,
+                    question: "في أشعة الأسنان، ما الذي يجب تغطيته بغطاء بلاستيكي؟",
+                    options: [
+                        "فيلم الأشعة.",
+                        "رأس أنبوبة الأشعة وأزرار التحكم.",
+                        "محلول التظهير.",
+                        "صدر المريض."
+                    ],
+                    answer: "ب"
+                }
+            ],
+            7: [
+                {
+                    number: 161,
+                    question: "ما هي سياسة المستشفى بشأن التدخين للزوار والموظفين؟",
+                    options: [
+                        "مسموح به في غرف المرضى.",
+                        "ممنوع.",
+                        "مسموح به فقط في غرف التدخين المخصصة.",
+                        "غير مذكور."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 162,
+                    question: "عند التعامل مع مريض متوفي، ما الذي يجب فعله بالأنابيب والقساطر؟",
+                    options: [
+                        "اتركها في مكانها ليقوم مشرحة الجنازات بإزالتها.",
+                        "أزلهم جميعًا وتخلص منهم في الكيس الأحمر.",
+                        "اربطهم واتركهم في مكانهم.",
+                        "يعتمد على أمر الطبيب."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 163,
+                    question: "ما الذي يجب فعله بالجروح على جثة المتوفي؟",
+                    options: [
+                        "اتركها مفتوحة.",
+                        "قم بتغطيتها بضمادات غير لاصقة لمنع تسرب السوائل.",
+                        "خيطها مغلقة.",
+                        "تجاهلها."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 164,
+                    question: "إذا كان المريض المتوفي معروفًا بإصابته بمرض معدي، من يجب إخطاره؟",
+                    options: [
+                        "العائلة فقط.",
+                        "قسم مكافحة العدوى.",
+                        "أمن المستشفى فقط.",
+                        "لا أحد؛ ليس ضروريًا."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 165,
+                    question: "ما هو التسلسل الصحيح لارتداء أدوات الوقاية الشخصية لمريض مشتبه بإصابته بكوفيد-١٩ (عزل تلامس ورذاذ)؟",
+                    options: [
+                        "القفازات، الجاون، الكمامة، واقي العين.",
+                        "الجاون، الكمامة، واقي العين، القفازات.",
+                        "الكمامة، القفازات، الجاون، واقي العين.",
+                        "واقي العين، الكمامة، الجاون، القفازات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 166,
+                    question: "لمريض مصاب بالسل الرئوي (المنقول بالهواء)، أين يجب خلع كمامة N95؟",
+                    options: [
+                        "داخل غرفة المريض.",
+                        "في محطة التمريض.",
+                        "خارج غرفة المريض.",
+                        "يمكن خلعها في أي مكان."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 167,
+                    question: "تحتاج إلى سحب دم من مريض مصاب بالمطثية العسيرة. ما هو إجراء نظافة اليدين الأكثر أهمية بعد الإجراء؟",
+                    options: [
+                        "استخدام محاليل كحولية لليدين.",
+                        "غسل اليدين بالماء والصابون.",
+                        "ارتداء طبقتين من القفازات، لذلك لا حاجة لنظافة اليدين.",
+                        "مسح اليدين بمنشفة مبللة بالكلور."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 168,
+                    question: "تدخل إلى غرفة مريض لتوصيل وجبة طعام وترى لافتة \"عزل تلامس\". يحتاج المريض إلى المساعدة للجلوس. ما هو الحد الأدنى من أدوات الوقاية الشخصية التي يجب أن ترتديها؟",
+                    options: [
+                        "القفازات والجاون.",
+                        "القفازات فقط.",
+                        "الكمامة والقفازات.",
+                        "الجاون فقط."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 169,
+                    question: "يتم نقل مريض مصاب ببكتيريا MRSA في جرح إلى قسم الأشعة. ما هي الخطوة الحاسمة؟",
+                    options: [
+                        "يجب أن يمشي المريض بمفرده.",
+                        "قم بتغطية الجرح وتنبيه القسم المستقبل.",
+                        "لا حاجة لإجراءات خاصة.",
+                        "إلغاء النقل."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 170,
+                    question: "قمت accidently برش دم في عينيك أثناء سحب عينة دم. ما هو إجراءك الفوري الأول؟",
+                    options: [
+                        "الإبلاغ عن الحادث لمشرفك.",
+                        "الذهاب إلى غرفة الطوارئ.",
+                        "غسل عينيك جيدًا بالماء أو المحلول الملحي.",
+                        "إنهاء سحب دم المريض أولاً."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 171,
+                    question: "يتم استخدام تعريف \"الأسلوب النظيف\" عندما:",
+                    options: [
+                        "يتم إدخال قسطرة وريدية مركزية.",
+                        "يتم التعامل مع جلد سليم أو أغشية مخاطية.",
+                        "يتم إجراء تغيير ضمادة معقمة.",
+                        "يتم التعامل مع جلد غير سليم."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 172,
+                    question: "يتم استخدام \"الأسلوب المانع للتلوث\" من أجل:",
+                    options: [
+                        "مساعدة المريض على الأكل.",
+                        "أخذ قراءة ضغط الدم.",
+                        "الحقن العضلي وتركيب القسطرة الوريدية الطرفية.",
+                        "الإجراءات الجراحية."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 173,
+                    question: "غيار القسطرة الوريدية الطرفية لمريض فضفاض ومتسخ قليلاً. ماذا يجب أن تفعل؟",
+                    options: [
+                        "لا تفعل شيئًا؛ ما زالت مثبتة.",
+                        "عززها بشريط لاصق إضافي.",
+                        "قم بتغيير الغيار فورًا.",
+                        "أزل القسطرة الوريدية بالكامل."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 174,
+                    question: "كيف يجب إدارة قلم الإنسولين المستخدم؟",
+                    options: [
+                        "يمكن مشاركته بين المرضى في نفس الغرفة.",
+                        "يجب تخصيصه لمريض واحد.",
+                        "يجب تخزينه في منطقة مشتركة للممرضات لاستخدامه.",
+                        "يجب التخلص منه بعد استخدام واحد."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 175,
+                    question: "عند تحضير الدواء، أين يجب أن يتم ذلك؟",
+                    options: [
+                        "بجانب سرير المريض.",
+                        "في غرفة تحضير نظيفة مخصصة.",
+                        "في الممر خارج غرفة المريض.",
+                        "في حمام الموظفين."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 176,
+                    question: "ما هو السبب الرئيسي لحظر تخزين الأدوية في باب الثلاجة؟",
+                    options: [
+                        "الباب صغير جدًا.",
+                        "التقلبات في درجة الحرارة هي الأكبر في الباب.",
+                        "إنه تقليد في المستشفى.",
+                        "من الأسهل رؤيتها على الأرفف."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 177,
+                    question: "ما هو الغرض من \"تقسيم المناطق للسطح\" في منطقة العمل؟",
+                    options: [
+                        "لجعل المنطقة تبدو منظمة.",
+                        "لفصل أسطح العمل (مثل تحضير الدواء) عن الأسطح الإدارية.",
+                        "لتعيين واجبات التنظيف.",
+                        "لتخصيص مناطق للأكل."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 178,
+                    question: "في المختبر، ما هو إجراء السلامة الرئيسي؟",
+                    options: [
+                        "تخزين الكواشف والعينات معًا.",
+                        "ارتداء أدوات الوقاية الشخصية المناسبة مثل الكمامات والقفازات والمريلات البلاستيكية.",
+                        "استخدام نفس الحوض لغسل اليدين والتخلص من النفايات السائلة.",
+                        "إبقاء جميع أبواب الخزانات مفتوحة لسهولة الوصول."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 179,
+                    question: "ما هو الإجراء الصحيح لنقل عينات المختبر؟",
+                    options: [
+                        "حملها مكشوفة في يديك.",
+                        "وضعها في كيس مختبر مناسب أو صندوق ثلج.",
+                        "وضعها في جيبك.",
+                        "إرسالها عبر البريد العادي."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 180,
+                    question: "تستخدم \"قائمة الأمراض الواجب الإبلاغ عنها\" لـ:",
+                    options: [
+                        "تخطيط وجبات المرضى.",
+                        "الإبلاغ عن أمراض محددة لقسم مكافحة العدوى ووزارة الصحة.",
+                        "جدولة مواعيد الأطباء.",
+                        "طلب المستلزمات الطبية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 181,
+                    question: "زائر يريد رؤية مريض في احتياطات عزل الرذاذ بسبب الإنفلونزا. ماذا يجب على الزائر فعله؟",
+                    options: [
+                        "الدخول بدون أي احتياطات.",
+                        "ارتداء كمامة جراحية وتنفيذ نظافة اليدين.",
+                        "ارتداء جاون كامل وقفازات.",
+                        "الزيارات غير مسموح بها تحت أي ظرف."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 182,
+                    question: "ما هي آداب السعال والعطس الموصى بها؟",
+                    options: [
+                        "السعال أو العطس في يديك.",
+                        "السعال أو العطس في الهواء.",
+                        "تغطية فمك وأنفك بمنديل أو مرفقك.",
+                        "لا تغطى السعال أو العطس."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 183,
+                    question: "الهدف الأساسي من \"الحزمة الوقائية للعدوى\" هو:",
+                    options: [
+                        "تقليل الأعمال الورقية.",
+                        "تجميع أنواع مختلفة من المضادات الحيوية معًا.",
+                        "تنفيذ مجموعة من الممارسات القائمة على الأدلة والتي، عند تنفيذها معًا، تحسن نتائج المريض.",
+                        "توفير المال على المستلزمات."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 184,
+                    question: "أي من التالي ليس نوعًا من العزل المذكور في المستند؟",
+                    options: [
+                        "عزل التلامس",
+                        "عزل الرذاذ",
+                        "عزل الهواء",
+                        "العزل الوقائي لمرضى نقص المناعة (يذكر \"لا يوجد في المشفى\")"
+                    ],
+                    answer: "د"
+                },
+                {
+                    number: 185,
+                    question: "لا يستقبل المستشفى عادة حالات عزل الهواء، ولكن إذا اشتبه في إصابة مريض، يتم:",
+                    options: [
+                        "علاجه في الجناح العام.",
+                        "عزله في غرفته والتنسيق لنقله إلى مستشفى متخصص.",
+                        "إرساله إلى المنزل فورًا.",
+                        "علاجه في العيادة الخارجية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 186,
+                    question: "إلى متى يجب عزل مريض مصاب ببكتيريا MRSA؟",
+                    options: [
+                        "لمدة ٢٤ ساعة بعد القبول.",
+                        "حتى تختفي الأعراض والعلامات والحصول على ٣ مزارع سلبية متتالية خلال أسبوع.",
+                        "طوال مدة إقامتهم في المستشفى، بغض النظر عن نتائج الاختبار.",
+                        "لمدة ٤٨ ساعة بعد بدء المضادات الحيوية."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 187,
+                    question: "من يصدر احتياطات العزل النهائية للمريض؟",
+                    options: [
+                        "الممرض.",
+                        "فريق مكافحة العدوى بالتواصل مع الطبيب المعالج.",
+                        "عائلة المريض.",
+                        "طاقم النظافة."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 188,
+                    question: "ما الذي يوضع على باب غرفة المريض في العزل؟",
+                    options: [
+                        "لافتة \"إزعاج ممنوع\".",
+                        "لافتة توضح نوع العزل والاحتياطات المطلوبة.",
+                        "اسم المريض وصورته.",
+                        "قائمة الزوار المسموح لهم."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 189,
+                    question: "ما هي الخطوة الأكثر أهمية في منع انتشار البكتيريا المقاومة للمضادات الحيوية؟",
+                    options: [
+                        "استخدام أقوى المضادات الحيوية المتاحة.",
+                        "نظافة اليدين الفعالة.",
+                        "عزل جميع المرضى.",
+                        "ارتداء الكمامة في جميع الأوقات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 190,
+                    question: "يذكر المستند أن المستشفى يوفر التطعيمات للموظفين. أي من التالي مذكور؟",
+                    options: [
+                        "٣ جرعات ضد الالتهاب الكبدي الفيروسي ب.",
+                        "التطعيم ضد السل.",
+                        "التطعيم ضد فيروس نقص المناعة البشرية.",
+                        "التطعيم ضد الملاريا."
+                    ],
+                    answer: "أ"
+                },
+                {
+                    number: 191,
+                    question: "ما هو دور طاقم التمريض في ترصد العدوى؟",
+                    options: [
+                        "ليس لديهم دور.",
+                        "معرفة تعريفات حالات العدوى والإبلاغ عن الأعراض لقسم مكافحة العدوى.",
+                        "وصف المضادات الحيوية للعدوى المشتبه فيها.",
+                        "إجراء جميع مزارع المختبر بأنفسهم."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 192,
+                    question: "متى يجب تغيير القسطرة البولية؟",
+                    options: [
+                        "يوميًا.",
+                        "عندما تكون مسدودة أو لم تعد هناك حاجة إليها.",
+                        "في كل مرة يتم فيها تفريغ الكيس.",
+                        "فقط إذا اشتكى المريض."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 193,
+                    question: "ما هي النقطة الرئيسية في سياسة \"التعامل الآمن مع الآلات الحادة\"؟",
+                    options: [
+                        "ثني الإبر بعد الاستخدام.",
+                        "إعادة تغطية الإبر باستخدام تقنية اليدين.",
+                        "التخلص من الآلات الحادة فورًا ومباشرة في صندوق الأمان.",
+                        "وضع الآلات الحادة المستخدمة على منضدة المريض للتخلص منها لاحقًا."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 194,
+                    question: "ما الذي تتضمنه تقنية \"عدم اللمس\" بشكل أساسي؟",
+                    options: [
+                        "لمس الأجزاء الرئيسية للمعدات المعقمة.",
+                        "عدم لمس أي جزء من المعدات التي ستلامس المريض أو تخترق الجلد.",
+                        "استخدام القفازات المعقمة لجميع الإجراءات.",
+                        "تنظيف البيئة بعد الإجراء."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 195,
+                    question: "مريض لديه قسطرة وريدية مركزية يحتاج إلى تغيير الغيار. هذا يتطلب:",
+                    options: [
+                        "الأسلوب النظيف.",
+                        "الأسلوب المانع للتلوث.",
+                        "الأسلوب المعقم.",
+                        "لا حاجة لأسلوب محدد."
+                    ],
+                    answer: "ج"
+                },
+                {
+                    number: 196,
+                    question: "ما هو الغرض الرئيسي من تنظيف السطح قبل التطهير؟",
+                    options: [
+                        "لجعله رائحته جميلة.",
+                        "لإزالة المواد العضوية والأوساخ التي يمكن أن تعطل المطهر.",
+                        "لتوفير كمية المطهر المستخدم.",
+                        "ليس من الضروري التنظيف قبل التطهير."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 197,
+                    question: "العبارة \"الالتزام باللحظات الخمس لنظافة الأيدي\" تترجم إلى:",
+                    options: [
+                        "الالتزام باللحظات الخمس لآداب السعال.",
+                        "الالتزام باللحظات الخمس لنظافة اليدين.",
+                        "الالتزام بالأنواع الخمسة للعزل.",
+                        "الالتزام بالخطوات الخمس لخلع القفازات."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 198,
+                    question: "في سياق هذا المستند، تشير \"المحلول الكحولي\" إلى:",
+                    options: [
+                        "محلول الكلور.",
+                        "المحاليل الكحولية لليدين.",
+                        "الماء والصابون.",
+                        "محلول البيتادين."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 199,
+                    question: "يؤكد المستند أن أهم إجراء للوقاية من انتقال العدوى هو:",
+                    options: [
+                        "ارتداء الجاون.",
+                        "نظافة اليدين المناسبة.",
+                        "عزل جميع المرضى.",
+                        "استخدام المضادات الحيوية وقائيًا."
+                    ],
+                    answer: "ب"
+                },
+                {
+                    number: 200,
+                    question: "الهدف العام والغرض من هذا المستند هو أن يكون:",
+                    options: [
+                        "تقريرًا ماليًا للمستشفى.",
+                        "دليل تدريبي شامل لطاقم التمريض حول مكافحة العدوى.",
+                        "كتيب معلومات للمرضى.",
+                        "كتيب تسويقي للمستشفى."
+                    ],
+                    answer: "ب"
+                }
+            ]
+        };
+
+        // Global variables
+        let currentSection = 1;
+        let viewedAnswers = new Set();
+        let filteredQuestions = [];
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSection(1);
+            setupEventListeners();
+            updateStats();
+        });
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Section buttons
+            document.querySelectorAll('.section-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const section = parseInt(this.dataset.section);
+                    loadSection(section);
+                });
+            });
+
+            // Search functionality
+            document.getElementById('searchInput').addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                filterQuestions(searchTerm);
+            });
+        }
+
+        // Load questions for a specific section
+        function loadSection(sectionNumber) {
+            currentSection = sectionNumber;
+            
+            // Update active button
+            document.querySelectorAll('.section-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-section="${sectionNumber}"]`).classList.add('active');
+            
+            // Update stats
+            document.getElementById('currentSection').textContent = sectionNumber;
+            
+            // Load questions
+            const questions = questionsData[sectionNumber] || [];
+            filteredQuestions = [...questions];
+            displayQuestions(questions);
+            
+            // Clear search
+            document.getElementById('searchInput').value = '';
+        }
+
+        // Display questions
+        function displayQuestions(questions) {
+            const container = document.getElementById('questionsContainer');
+            
+            if (questions.length === 0) {
+                container.innerHTML = `
+                    <div class="no-results">
+                        <i class="fas fa-search"></i>
+                        <h3>لا توجد نتائج</h3>
+                        <p>يرجى تجربة كلمات بحث أخرى</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = questions.map(q => `
+                <div class="question-card" data-question-id="${q.number}">
+                    <div class="question-number">${q.number}</div>
+                    <div class="question-text">${q.question}</div>
+                    <ul class="options-list">
+                        ${q.options.map((opt, index) => `
+                            <li class="option-item">
+                                <span class="option-letter">${String.fromCharCode(1610 + index)}</span>
+                                <span>${opt}</span>
+                            </li>
+                        `).join('')}
+                    </ul>
+                    <button class="show-answer-btn" onclick="toggleAnswer(${q.number})">
+                        <i class="fas fa-eye ms-2"></i>إظهار الإجابة
+                    </button>
+                    <div class="answer-section" id="answer-${q.number}">
+                        <div class="answer-label">
+                            <i class="fas fa-check-circle"></i>
+                            الإجابة الصحيحة: ${q.answer}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Toggle answer visibility
+        function toggleAnswer(questionNumber) {
+            const answerSection = document.getElementById(`answer-${questionNumber}`);
+            const button = answerSection.previousElementSibling;
+            
+            if (answerSection.classList.contains('show')) {
+                answerSection.classList.remove('show');
+                button.innerHTML = '<i class="fas fa-eye ms-2"></i>إظهار الإجابة';
+            } else {
+                answerSection.classList.add('show');
+                button.innerHTML = '<i class="fas fa-eye-slash ms-2"></i>إخفاء الإجابة';
+                viewedAnswers.add(questionNumber);
+                updateStats();
+            }
+        }
+
+        // Filter questions based on search
+        function filterQuestions(searchTerm) {
+            if (!searchTerm) {
+                loadSection(currentSection);
+                return;
+            }
+            
+            const allQuestions = [];
+            for (let section in questionsData) {
+                allQuestions.push(...questionsData[section]);
+            }
+            
+            const filtered = allQuestions.filter(q => 
+                q.question.toLowerCase().includes(searchTerm) ||
+                q.options.some(opt => opt.toLowerCase().includes(searchTerm)) ||
+                q.answer.toLowerCase().includes(searchTerm)
+            );
+            
+            filteredQuestions = filtered;
+            displayQuestions(filtered);
+        }
+
+        // Update statistics
+        function updateStats() {
+            document.getElementById('viewedAnswers').textContent = viewedAnswers.size;
+            
+            // Calculate progress
+            const totalQuestions = Object.values(questionsData).reduce((sum, section) => sum + section.length, 0);
+            const progress = (viewedAnswers.size / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+    </script>
+</body>
+</html>
